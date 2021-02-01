@@ -1,0 +1,21 @@
+<!-- <h1>Dogs#index</h1>
+<p>Find me in app/views/dogs/index.html.erb</p>
+ -->
+<ul>
+ 	<% @dogs.each do |dog|%>
+ 		<li> <%= link_to dog.name, dog_path(dog)%> </li>
+ 	<%end%>
+ </ul> 
+
+ <table>
+ 		<% @dogs.each do |dog| %>
+ 		 	<tr>
+
+	 		<td><%= link_to dog.name, dog_path(dog)%></td>
+	 		<td><%= button_to 'Edit', edit_dog_path(dog),method: 'get' %></td>
+	 		<td><%= button_to 'Remove', dog_path(dog),method: 'delete',data: {cofirm:'Are You Sure?'}%></td>
+	 		 	</tr>
+
+ 		<% end %>
+ </table>
+ <%=link_to "Add a New Dog", new_dog_path%>
